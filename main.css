@@ -2,10 +2,95 @@ html,
 body {
   padding: 0;
   margin: 0;
+  background: black;
+  color: white;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .p5Canvas {
   display: flex;
   margin: auto;
   margin-top: 5%;
+  border: 2px #00ffc7 solid;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 255, 200, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(0, 255, 200, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 255, 200, 0);
+  }
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+/* Container CSS */
+.inputContainer {
+  width: 50%;
+  min-width: 500px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+/* Slider CSS */
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  margin: 10px 50px;
+  background: linear-gradient(to right, #16a085 0%, #16a085 100%);
+  background-size: 100% 35%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
+  zoom: 130%;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #00ffc7;
+  position: relative;
+  z-index: 3;
+  border-radius: 50%;
+}
+
+/* Button CSS */
+button {
+  display: inline-block;
+  padding: 0.55em 1.5em;
+  border: 0.1em solid rgba(0, 255, 200, 0.9);
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: rgba(0, 255, 200, 0.9);
+  text-align: center;
+  background: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(0, 255, 200, 0.9);
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: center;
 }

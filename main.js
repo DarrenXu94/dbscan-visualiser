@@ -1,5 +1,9 @@
 const size = 500;
 let points = []
+let slider;
+let output;
+
+let numClusters;
 
 function rnd_snd() {
     return (Math.random() * 2 - 1) + (Math.random() * 2 - 1) + (Math.random() * 2 - 1);
@@ -10,7 +14,7 @@ function rnd(mean, stdev) {
 }
 
 generatePoints = function () {
-    var num_clusters = 3;
+    var num_clusters = output.innerHTML;
     var max_x_stdev = 10;
     var max_y_stdev = 15;
     var cluster_size = 30;
@@ -30,7 +34,24 @@ generatePoints = function () {
     return raw_point_data.map(el => new Particle(el.x, el.y));
 }
 
+initSlider = function () {
+    slider = document.getElementById("myRange");
+    output = document.getElementById("inputValue");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+}
+
+initText = function () {
+    numClusters = document.getElementById("numClusters");
+
+}
+
 setup = function () {
+    initSlider();
+    initText();
     createCanvas(size, size);
     points = shuffle(generatePoints());
 }
@@ -72,6 +93,7 @@ runDBScan = function () {
     const groups = dbscanner()
     const colors = (new Set(groups)).size
     console.log("Info: Number of clusters", colors)
+    numClusters.innerHTML = colors
     groups.forEach((val, idx) => {
         points[idx].fill = perc2color(val / colors * 100);
     })

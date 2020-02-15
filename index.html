@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Scatter Points</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 
     <script src="./libraries/p5.js"></script>
     <script src="./libraries/p5.dom.js"></script>
@@ -19,8 +20,19 @@
 </head>
 
 <body>
-    <button onclick="runDBScan()" id="sort-button">Sort</button>
-    <button onclick="reset()" id="reset-button">Reset</button>
+    <div class="inputContainer">
+        <p>Select number of clusters <span id="inputValue"></span></p>
+        <div class="slidecontainer">
+            <input type="range" min="1" max="10" value="3" class="slider" id="myRange">
+        </div>
+        <br />
+        <span class="btnGroup">
+            <button onclick="runDBScan()" id="sort-button">Sort</button>
+            <button onclick="reset()" id="reset-button">Generate points</button>
+        </span>
+        <p>Number of clusters: <span id="numClusters"></span></p>
+    </div>
+
 </body>
 
 </html>
